@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:QuantityCalculation.ViewModel"
+             x:Class="QuantityCalculation.View.ShowItemPage"
+             Title="{Binding CurrentItem.Name}">
+    <ContentPage.BindingContext>
+        <vm:ShowItemVM />
+    </ContentPage.BindingContext>
+    <StackLayout Padding="20" Spacing="20">
+        <!-- إدخال القيمة -->
+        <Label Text="إدخال القيمة" HorizontalOptions="End"/>
+        <Entry Text="{Binding InputValue}" Placeholder="أدخل القيمة" Keyboard="Numeric" HorizontalTextAlignment="End"/>
+        <Button Text="حساب" Command="{Binding ShowDetalis}"/>
+
+        <!-- عرض المواد -->
+        <StackLayout BindableLayout.ItemsSource="{Binding Materials}">
+            <BindableLayout.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Padding="5">
+                        
+                        <Label Text=" طن" FontSize="20" HorizontalTextAlignment="Center"/>
+                        <Label Text="{Binding Weight}" FontSize="20" HorizontalTextAlignment="Center"/>
+                        <Label Text=" : " FontSize="20" HorizontalTextAlignment="Center"/>
+                        <Label Text="{Binding Name}" FontSize="20" HorizontalTextAlignment="Center"/>
+                    </StackLayout>
+                </DataTemplate>
+            </BindableLayout.ItemTemplate>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

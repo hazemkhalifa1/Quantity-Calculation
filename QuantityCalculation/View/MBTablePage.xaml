@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:QuantityCalculation.ViewModel"
+             x:Class="QuantityCalculation.View.MBTablePage"
+             Title="قائمه ال MB">
+    <ContentPage.BindingContext>
+        <vm:MBTableVM />
+    </ContentPage.BindingContext>
+    <StackLayout Padding="20" Spacing="20">
+        <!-- زر إضافة عنصر جديد -->
+        <Button Text="إضافة MB جديد"
+            Command="{Binding AddMBCommand}"
+            HorizontalOptions="Center" />
+
+         <!--جدول العناصر--> 
+        <CollectionView ItemsSource="{Binding MBs}" >
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <VerticalStackLayout  Padding="10">
+                         <!--عرض اسم العنصر--> 
+                        <Label Text="{Binding Name}" FontSize="20" HorizontalOptions="Center"/>
+                    </VerticalStackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </StackLayout>
+</ContentPage>

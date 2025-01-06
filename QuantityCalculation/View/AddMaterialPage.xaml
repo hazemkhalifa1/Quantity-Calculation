@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:QuantityCalculation.ViewModel"
+             x:Class="QuantityCalculation.View.AddMaterialPage"
+             Title="اضافه خامة">
+    
+    <ContentPage.BindingContext>
+        <vm:AddMaterialVM/>
+    </ContentPage.BindingContext>
+
+    <VerticalStackLayout Padding="20" Spacing="20">
+        <Label Text="ادخل الخامة :" HorizontalTextAlignment="End"/>
+        <Entry Placeholder="ادخل الخامة" Text="{Binding Name}" HorizontalTextAlignment="End" />
+        <Button Text="اضافه" HorizontalOptions="Center" Command="{Binding AddMaterialCommand}"/>
+    </VerticalStackLayout>
+</ContentPage>

@@ -1,0 +1,6 @@
+@QuantityCalculation.API_HostAddress = http://localhost:5082
+
+GET {{QuantityCalculation.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

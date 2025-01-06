@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="QuantityCalculation.View.MaterialTablePage"    
+             xmlns:vm="clr-namespace:QuantityCalculation.ViewModel"
+             Title="قاءمة الخامات">
+    <ContentPage.BindingContext>
+        <vm:MaterialTableVM />
+    </ContentPage.BindingContext>
+    <StackLayout Padding="20" Spacing="20">
+        <!-- زر إضافة عنصر جديد -->
+        <Button Text="إضافة خامة جديد"
+         Command="{Binding AddMaterialCommand}"
+         HorizontalOptions="Center" />
+
+        <!--جدول العناصر-->
+        <CollectionView ItemsSource="{Binding Materials}" >
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <VerticalStackLayout  Padding="10">
+                        <!--عرض اسم العنصر-->
+                        <Label Text="{Binding Name}" FontSize="20" HorizontalOptions="Center"/>
+                    </VerticalStackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </StackLayout>
+</ContentPage>
